@@ -1,0 +1,27 @@
+body {
+  background-image: url('slytherincommonroom.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body-empty {
+/*  background-image: url('slytherincommonroom.jpg');
+*/  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container {
+	position: relative;
+	text-align: center;
+	color: white;
+}
+.centered
+
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate (-50%, -50%);
+}
