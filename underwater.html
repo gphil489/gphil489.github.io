@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' href='index.css'>
+
+    <title>Agatha's Scavenger Hunt</title>
+  </head>
+
+<body>
+
+
+<div class= "container">
+	<img id="final" src="" style= "visibility:hidden;"/>  
+	<div id= "clue" class= "text" style= "color:white;" >  <br> <br> <br> <br> <br> To get the answer you seek <br> you must start with the one with a beak<br>
+	next is the creature with three heads<br>
+	and then comes one that you have read<br>
+	then is the one that likes to sort<br>
+	and finally the one that is used in sport<br>
+	<br>
+	check them carefully <br>
+	and you will see<br>
+	a word that sets this passage free!<br></div>
+</div>
+
+
+	<!-- <h1 class="text-center" id= "clue" name= "clue" style= "color:white">To get the answer you seek<br> -->
+<!-- 	you must start with the one with a beak<br>
+	next is the creature with three heads<br>
+	and then comes one that you have read<br>
+	then is the one that likes to sort<br>
+	and finally the one that is used in a sport<br>
+	<br>
+	check them carefully <br>
+	and you will see<br>
+	a word that sets this passage free!<br>
+
+	</h1> -->
+
+	
+	<div class='text-center'>
+		<br> <br>
+		<textarea id="password" name="password" rows="1" cols="40" style= "visibility: visible;">Enter password here</textarea>
+	</div>
+
+
+
+	<div class='text-center'>
+		<button id="button" class="text-center" style= "visibility: visible;">Submit</button>
+	</div>
+
+	
+	<div class='text-center'>
+		<br> <br> <br>
+	<h1  id="timer" class="text-center" style= "color:white" style= "visibility: visible"> </h1> 
+	</div>
+	
+
+
+	<script>
+		var element= document.getElementById("password")
+		var button= document.getElementById("button")
+		var housecup= document.getElementById("final")
+		var text=document.getElementById("clue")
+	 	var countDownDate= new Date().getTime() + 7800000;
+	 	// var text= document.getElementById("clue")
+	 	var x= setInterval(function() {
+	 		var now= new Date().getTime();
+	 		var difference= countDownDate-now 
+	 		var min= Math.floor((difference% (1000*60*60))/(1000*60))
+	 		var sec= Math.floor((difference% (1000*60))/1000)
+	 	
+	 		document.getElementById("timer").innerHTML= min + "min " + sec + "sec "
+	 		console.log(sec%2)
+	 		if (sec%2===0)
+					{ document.getElementById("timer").style.color= "red"}
+				else
+					{document.getElementById("timer").style.color= "white"}
+	 	}, 1000);
+	 		
+
+			button.onclick= function() {
+			if (element.value.trim()=== "chocolate frog") 
+				{
+				housecup.src="housecup.jpg"
+				housecup.style.visibility="visible"
+				element.style.visibility= "hidden"
+				button.style.visibility= "hidden"
+				clue.innerHTML= "Congrats! You found the house cup!!! For your bravery, Gryffindor has recieved 10 points, and you get a coupon for 1 fancy hairstyle!"
+				clue.style.color= "#740001"
+				clue.style.fontSize= "xx-large"
+				clue.style['border-radius']= "10px"
+				clue.style.backgroundColor= "#eeba30"
+				document.getElementById("welcome").style.visibility="hidden"
+				document.getElementById("timer").style.visibility="hidden"
+				document.getElementsByTagName("body")[0].class = 'body-empty'
+				
+
+				// console.log(document.getElementById("timer"))
+
+
+		
+
+			}
+			else
+				{status.innerHTML="incorrect"
+		}
+		console.log(element.value)		
+		}
+	</script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+
+
