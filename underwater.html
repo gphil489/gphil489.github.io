@@ -9,18 +9,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' href='index.css'>
 
-    -- <title>Agatha's Scavenger Hunt</title> -->
+  <title>Agatha's Scavenger Hunt</title> 
   </head>
 
  <div class= "container"> 	
 	<img id="firstpic" src="" style= "visibility:hidden;"/>  
+	<img id="wrong" src=""; />
 	<div id= "clue" class= "text" style= "color:white;" >  <br>  Agatha, welcome to the great ocean <br> Where the animals are causing quite a commotion<br>
 	 To make your way back to land <br> A set of riddles will lend you a hand <br> The clues will lead you to different locations<br> where you'll find underwater animals like crustaceans <br> then you'll type their names into this website <br> until you reach the end of this plight!<br></div>
 </div>
 
 
 <div class= "container"> 	
-	<img id="turtleclue" src="" style= "visibility:hidden;"/> 
+	<img id="turtleclue" src="" style= "visibility:hidden; font-size:100%"/> 
 	</div>
 
 
@@ -28,7 +29,7 @@
 </h1>
 
 	<div class='text-center'>
-		<textarea id="password" name="password" rows="1" cols="40" style= "visibility: visible;">Enter password here</textarea>
+		<textarea id="password" name="password" rows="1" cols="40" style= "visibility: visible;" onfocus="clearContents(this);">Enter password here</textarea>
 	</div>
 
 
@@ -45,8 +46,9 @@
 	<script>
 		var element= document.getElementById("password")
 		var button= document.getElementById("button")
-		var state= "0"
+		var state= 0
 		var img= document.getElementById("firstpic")
+		var wrong=document.getElementById("wrong")
 		var turtleclue=document.getElementById("turtleclue")
 		var text=document.getElementById("clue")
 		var clue1=document.getElementById("morse")
@@ -65,11 +67,14 @@
 				else
 					{document.getElementById("timer").style.color= "white"}
 	 	}, 1000);
-
+	 		function clearContents(element){
+	 			element.value= '';
+	 		}
 
 			button.onclick= function() {
 			if (element.value.trim()=== "dolphin") 
 				{
+
 				img.src="dolphintransparent.png"
 				img.style.visibility="visible"
 				state="1" 
@@ -108,6 +113,7 @@
 									{
 										img.src="turtle.png"
 
+
 										clue.innerHTML= "Follow the directions: E S E S W W S E S E E N E N"
 										turtleclue.src= "maze.png"
 										turtleclue.style.visibility= "visible"
@@ -124,15 +130,25 @@
 												button.style.visibility= "hidden"
 												clue.innerHTML= ""
 												clue1.innerHTML= "Congrats!! Your quest has ended as the swan has pulled you from the water! In return for surviving such a feat, you recieve 1 coupon to watch two songs from Hamilton"
-												clue1.style.color= "#012998"
+												clue1.style.color= "#FFFFFF"
 												timer.style.visibility="hidden" 
 										}
-									}
+									
 
-				
-			
-				status.innerHTML="incorrect"
-		
+			else{	
+			wrong.src="redx.png"
+			var intervalID= setInterval(function(){
+				state=1
+				if (state==1){
+					clearInterval(intervalID)
+					state=0
+					wrong.src=""
+				}
+
+			},1000)
+			status.innerHTML="incorrect"
+		}
+	}
 			
 		
 	</script>

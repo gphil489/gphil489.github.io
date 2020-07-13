@@ -12,10 +12,15 @@ body-empty {
   background-size: cover;
 }
 
+h1{
+	font-size:50px;
+}
+
 .container {
 	position: relative;
 	text-align: center;
 	color: white;
+	font-size:25px;
 }
 .centered
 
